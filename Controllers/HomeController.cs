@@ -18,6 +18,7 @@ namespace SmartFix.Controllers
             return View();
         }
 
+        //[HttpPost("v1/privacy")]
         public IActionResult Privacy()
         {
             return View();

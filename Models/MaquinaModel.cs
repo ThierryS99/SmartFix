@@ -11,12 +11,12 @@ namespace SmartFix.Models
         public string CodigoIdentificacao { get; set; }
 
         [Required]
-        public DateTime HorasFuncionamento { get; set; }
+        public double HorasFuncionamento { get; set; }
 
         [Required]
-        public bool Status { get; set; }
+        public bool Status { get; set; } // TRUE: trabalhando, FALSE: avariada (parada)
 
-        public MaquinaModel(int id, string codigoIdentificacao, DateTime horasFuncionamento, bool status)
+        public MaquinaModel(int id, string codigoIdentificacao, double horasFuncionamento, bool status)
         {
             Id = id;
             CodigoIdentificacao = codigoIdentificacao;

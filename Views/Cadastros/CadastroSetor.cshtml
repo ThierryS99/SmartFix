@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Cadastro de máquinas";
+    ViewData["Title"] = "Cadastro de setor";
 }
 <!DOCTYPE html>
 <html>
@@ -70,24 +70,10 @@
         <h2>Tela de Cadastro</h2>
         <form>
             <div class="form-group">
-                <label for="codigo">Código de Identificação:</label>
+                <label for="codigo">Nome do setor:</label>
                 <input type="text" id="codigo" name="codigo" required>
             </div>
-            <div class="form-group">
-                <label for="horas">Horas de Funcionamento:</label>
-                <input type="text" id="horas" name="horas" required>
-            </div>
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <label class="status-label">
-                    <input type="radio" name="status" value="ativo" required>
-                    Ativo
-                </label>
-                <label class="status-label">
-                    <input type="radio" name="status" value="inativo" required>
-                    Inativo
-                </label>
-            </div>
+            
             <input type="submit" value="PROCESSAR" class="btn-submit">
         </form>
     </div>

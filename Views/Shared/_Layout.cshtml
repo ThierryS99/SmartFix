@@ -5,9 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SmartFix</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SmartFix.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header>
@@ -26,7 +24,7 @@
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Cadastros" asp-action="CadastroMaquina">Cadastro de Máquina</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Cadastros" asp-action="CadastroSetor">Cadastro de Setor</a></li>
-                                <li><a class="dropdown-item" href="#">Cadastro de Ordem de Manutenção</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Cadastros" asp-action="CadastroOrdemManutencao">Cadastro de Ordem de Manutenção</a></li>
                             </ul>
                         </li>
 
@@ -39,10 +37,6 @@
                                 <li><a class="dropdown-item" href="#">Ordens de Manutenção em Aberto</a></li>
                                 <li><a class="dropdown-item" href="#">Histórico de Manutenção</a></li>
                             </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">PRIVACIDADE</a>
                         </li>
                     </ul>
                 </div>

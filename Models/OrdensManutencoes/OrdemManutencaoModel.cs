@@ -33,6 +33,7 @@ namespace SmartFix.Models.OrdemManutencao
         {
             Aberta_Aguardando,
             Aberta_Executando,
+            Aberta_Parada,
             Fechada
         }
 

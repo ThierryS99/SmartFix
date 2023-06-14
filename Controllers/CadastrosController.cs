@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartFix.Models;
+using SmartFix.Repositorio;
 using System.Diagnostics;
 using System.Runtime.Intrinsics;
 
@@ -13,29 +14,64 @@ namespace SmartFix.Controllers
         {
             _logger = logger;
         }
-
-        [Route("/v1/cadastro-maquina")]
-        public IActionResult CadastroMaquina()
+        
+        /*
+        private readonly ISetorRepositorio _setorRepositorio;
+        public CadastrosController(ISetorRepositorio setorRepositorio)
         {
-            return View();
+            _setorRepositorio = setorRepositorio;
         }
 
-        [Route("/v1/cadastro-setor")]
+        /*
+        private readonly IMaquinaRepositorio _maquinaRepositorio;
+        public CadastrosController(IMaquinaRepositorio maquinaRepositorio)
+        {
+            _maquinaRepositorio = maquinaRepositorio;
+        } 
+         
+        private readonly IOrdemManutencaoRepositorio _ordemManutencaoRepositorio;
+        public CadastrosController(IOrdemManutencaoRepositorio ordemManutencaoRepositorio)
+        {
+            _ordemManutencaoRepositorio = ordemManutencaoRepositorio;
+        }
+        */
+
+        [HttpGet("/v1/cadastro-setor")]
         public IActionResult CadastroSetor()
         {
             return View();
         }
 
-        [Route("/v1/cadastro-ordem-manutencao")]
-        public IActionResult CadastroOrdem()
+        [HttpPost("/v1/cadastro-setor")]
+        public IActionResult CadastroSetorPost()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet("/v1/cadastro-maquina")]
+        public IActionResult CadastroMaquina()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        [HttpPost("/v1/cadastro-maquina")]
+        public IActionResult CadastroMaquinaPost()
+        {
+            return View();
+        }
+
+
+        [HttpGet("/v1/cadastro-ordem-manutencao")]
+        public IActionResult CadastroOrdemManutencao()
+        {
+            return View();
+        }
+
+
+        [HttpPost("/v1/cadastro-ordem-manutencao")]
+        public IActionResult CadastroOrdemManutencaoPost()
+        {
+            return View();
         }
     }
 }

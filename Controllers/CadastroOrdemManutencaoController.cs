@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SmartFix.Models.OrdemManutencao;
+using SmartFix.Models;
 using SmartFix.Repositorio;
 
 namespace SmartFix.Controllers

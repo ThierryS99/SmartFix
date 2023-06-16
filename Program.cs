@@ -3,9 +3,9 @@ using SmartFix.Data;
 using SmartFix.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddControllersWithViews();
-builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<BancoContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddScoped<IMaquinaRepositorio, MaquinaRepositorio>();
 builder.Services.AddScoped<ISetorRepositorio, SetorRepositorio>();
 builder.Services.AddScoped<IOrdemManutencaoRepositorio, OrdemManutencaoRepositorio>();

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SmartFix.Models.OrdemManutencao
+namespace SmartFix.Models
 {
 
     public class OrdemManutencaoModel

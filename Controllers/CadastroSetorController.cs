@@ -13,17 +13,17 @@ namespace SmartFix.Controllers
         }
         
 
-        [HttpGet("/v1/cadastro-setor")]
+        //[HttpGet("/v1/cadastro-setor")]
         public IActionResult CadastroSetorView()
         {
             return View();
         }
 
-        [HttpPost("/v1/cadastro-setor")]
+        [HttpPost]
         public IActionResult CadastroSetorView(SetorModel setor)
         {
             _setorRepositorio.Adicionar(setor);
-            return View("Index");
+            return RedirectToAction("CadastroSetorView");
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using SmartFix.Data;
 using SmartFix.Models;
-using SmartFix.Models.OrdemManutencao;
 
 namespace SmartFix.Repositorio
 {

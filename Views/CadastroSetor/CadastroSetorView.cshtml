@@ -1,81 +1,30 @@
-﻿@{
+﻿@model SetorModel
+@{
     ViewData["Title"] = "Cadastro de setor";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tela de Cadastro</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
 
-        .container h2 {
-            text-align: center;
-        }
+<br />
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+<div class="text-center">
+    <h1 class="display-6">CADASTRO DE SETOR</h1>
+    <p></p>
+</div>
 
-            .form-group label {
-                display: block;
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
+<form asp-controller="CadastroSetor" asp-action="CadastroSetorView" method="post">
 
-            .form-group input[type="text"],
-            .form-group select {
-                width: 100%;
-                padding: 5px;
-                font-size: 16px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" class="form-control" placeholder="Informe o código do produto.">
 
-            .form-group select {
-                height: 30px;
-            }
+        <label for="Nome">Nome do Setor:</label>
+        <input type="text" required="true" style="text-transform:uppercase" asp-for="Nome" class="form-control" placeholder="Informe o nome do setor.">
 
-            .form-group .status-label {
-                font-weight: normal;
-            }
+        <br />
 
-                .form-group .status-label span {
-                    margin-left: 5px;
-                }
+        <button type="submit" class="btn btn-primary">PROCESSAR</button>
 
-                .form-group .status-label input[type="radio"] {
-                    margin-right: 5px;
-                }
-
-                    .form-group .status-label input[type="radio"]:last-child {
-                        margin-right: 0;
-                    }
-
-            .form-group .btn-submit {
-                width: 100%;
-                padding: 10px;
-                font-size: 16px;
-                border: none;
-                background-color: #4CAF50;
-                color: white;
-                cursor: pointer;
-                border-radius: 4px;
-            }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Tela de Cadastro</h2>
-        <form>
-            <div class="form-group">
-                <label for="codigo">Nome do setor:</label>
-                <input type="text" id="codigo" name="codigo" required>
-            </div>
-            
-            <input type="submit" value="PROCESSAR" class="btn-submit">
-        </form>
+        <div class="btn-group" role="group">
+            <a role="button" class="btn btn-secondary" asp-controller="Home" asp-action="Index">CANCELAR</a>
+        </div>
     </div>
-</body>
-</html>
+
+</form>

@@ -21,7 +21,7 @@ namespace SmartFix.Controllers
         }
 
         [HttpPost("/v1/cadastro-maquina")]
-        public IActionResult CadastroMaquinaView(MaquinaModel maquina)
+        public IActionResult CadastroMaquinaPost(MaquinaModel maquina)
         {
             _maquinaRepositorio.Adicionar(maquina);
             return RedirectToAction("Index");

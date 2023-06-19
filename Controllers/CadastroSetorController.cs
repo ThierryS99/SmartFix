@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartFix.Models;
 using SmartFix.Repositorio;
+using SmartFix.Views;
+using System.Windows.Markup;
 
 namespace SmartFix.Controllers
 {
@@ -13,17 +15,28 @@ namespace SmartFix.Controllers
         }
         
 
-        //[HttpGet("/v1/cadastro-setor")]
+        [HttpGet]
+        [Route("/v1/cadastro-setor")]
         public IActionResult CadastroSetorView()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("/v1/cadastro-setor")]
+        
         public IActionResult CadastroSetorView(SetorModel setor)
         {
-            _setorRepositorio.Adicionar(setor);
-            return RedirectToAction("CadastroSetorView");
+            try
+            {
+                _setorRepositorio.Adicionar(setor);
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View(ex);
+            }
+            
         }
     }
 }

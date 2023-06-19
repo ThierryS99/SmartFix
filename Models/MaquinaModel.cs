@@ -16,13 +16,5 @@ namespace SmartFix.Models
         [Required]
         public bool Status { get; set; } // TRUE: trabalhando, FALSE: avariada (parada)
 
-        public MaquinaModel(int id, string codigoIdentificacao, double horasFuncionamento, bool status)
-        {
-            Id = id;
-            CodigoIdentificacao = codigoIdentificacao;
-            HorasFuncionamento = horasFuncionamento;
-            Status = status;
-        }
-
     }
 }

@@ -23,7 +23,7 @@ namespace SmartFix.Controllers
         public IActionResult CadastroOrdemManutencaoView(OrdemManutencaoModel ordemManutencao)
         {
             _ordemManutencaoRepositorio.Adicionar(ordemManutencao);
-            return View("Index");
+            return RedirectToAction("CadastroOrdemManutencaoView");
         }
     }
 }

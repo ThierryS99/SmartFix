@@ -1,4 +1,9 @@
-﻿@model MaquinaModel
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+@model MaquinaModel
 @{
     ViewData["Title"] = "Cadastro de máquinas";
 }
@@ -12,7 +17,7 @@
 
 <br />
 
-<form asp-controller="CadastroMaquina" asp-action="CadastroMaquinaPost" method="post>
+<form asp-controller="CadastroMaquina" asp-action="CadastroMaquinaView" method="post">
 
     <div class="form-group">
         <label for="Codigo">Código da Máquina:</label>
@@ -27,23 +32,47 @@
 
         <label for="status">Status:</label>
         <label class="status-label">
-            <input type="radio" name="status" value="ativo" required>
+            <input type="radio" name="status" asp-for="Status" value="true">
             Ativo
         </label>
         <label class="status-label">
-            <input type="radio" name="status" value="inativo" required>
+            <input type="radio" name="status" asp-for="Status" asp-value value="false">
             Inativo
         </label>
 
         <br />
         <br />
 
-        <button type="submit" class="btn btn-primary">PROCESSAR</button>
+        <button type="submit" data-toggle="modal" data-target="#myMaq" class="btn btn-primary">PROCESSAR</button>
 
         <div class="btn-group" role="group">
             <a role="button" class="btn btn-secondary" asp-controller="Home" asp-action="Index">CANCELAR</a>
         </div>
-    </div>
 
+        <div class="modal fade" id="myMaq">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Cabeçalho do Popup -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cadastro de Máquina</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Corpo do Popup -->
+                    <div class="modal-body">
+                        <p>Máquina cadastrada com sucesso!</p>
+                    </div>
+
+                    <!-- Rodapé do Popup -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </form>

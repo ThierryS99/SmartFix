@@ -14,7 +14,7 @@ namespace SmartFix.Repositorio
 
         public OrdemManutencaoModel Adicionar(OrdemManutencaoModel ordem_Manutencao)
         {
-            _bancoContext.ordemManutencao.Add(ordem_Manutencao);
+            _bancoContext.OrdemManutencao.Add(ordem_Manutencao);
             _bancoContext.SaveChanges();
             return ordem_Manutencao;
         }

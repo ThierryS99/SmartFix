@@ -18,5 +18,10 @@ namespace SmartFix.Repositorio
             _bancoContext.SaveChanges();
             return maquina;
         }
+
+        public List<MaquinaModel> BuscarTodasMaquinas()
+        {
+            return _bancoContext.Maquina.ToList();
+        }
     }
 }

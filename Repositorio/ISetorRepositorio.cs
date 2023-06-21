@@ -5,5 +5,7 @@ namespace SmartFix.Repositorio
     public interface ISetorRepositorio
     {
         SetorModel Adicionar(SetorModel setor);
+
+
     }
 }

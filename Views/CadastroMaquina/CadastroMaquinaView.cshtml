@@ -4,6 +4,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @model MaquinaModel
+
 @{
     ViewData["Title"] = "Cadastro de máquinas";
 }
@@ -36,7 +37,7 @@
             Ativo
         </label>
         <label class="status-label">
-            <input type="radio" name="status" asp-for="Status" asp-value value="false">
+            <input type="radio" name="status" asp-for="Status" value="false">
             Inativo
         </label>
 
@@ -50,7 +51,7 @@
         </div>
 
         <div class="modal fade" id="myMaq">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
                     <!-- Cabeçalho do Popup -->

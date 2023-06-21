@@ -12,6 +12,6 @@ namespace SmartFix.Data
 
         public DbSet<SetorModel> Setor { get; set; }
 
-        public DbSet<OrdemManutencaoModel> ordemManutencao { get; set; }
+        public DbSet<OrdemManutencaoModel> OrdemManutencao { get; set; }
     }
 }

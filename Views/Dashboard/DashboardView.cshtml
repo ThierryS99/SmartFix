@@ -12,117 +12,260 @@
 
 <br />
 
-<table class="table table-bordered border-primary">
-    <thead class="table-dark">
-        <tr>
-            <th scope="colgroup">ID</th>
-            <th scope="colgroup">MOTIVO</th>
-            <th scope="colgroup">DESCRIÇÃO</th>
-            <th scope="colgroup">SETOR</th>
-            <th scope="colgroup">MÁQUINA</th>
-            <th scope="colgroup">TEMPO UTILIZADO</th>
-            <th scope="colgroup">DATA E HORA (INÍCIO)</th>
-            <th scope="colgroup">STATUS</th>
-            <th scope="colgroup">TIPO</th>
-            <th scope="colgroup">AÇÃO</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Any())
-        {
-            foreach (OrdemManutencaoModel ordem in Model)
-            {
+<div class="card text-center bg-light">
+    <h5 class="card-header bg-warning">
+        ORDENS AGENDADAS PARA HOJE
+    </h5>
+    <div class="card-body">
+
+        <table class="table table-bordered border-primary">
+            <thead class="table-dark">
                 <tr>
-                    <td>@ordem.Id</td>
-                    <td>@ordem.Motivo</td>
-                    <td>@ordem.Observacao</td>
-                    @switch (ordem.SetorId)
-                    {
-                        case 1:
-                            <td> Engenharia </td>
-                            ; break;
-                        case 2:
-                            <td> Corte </td>
-                            ; break;
-                        case 3:
-                            <td> Acabamento </td>
-                            ; break;
-                        case 4:
-                            <td> Embalagem </td>
-                            ; break;
-                        case 5:
-                            <td> Separação </td>
-                            ; break;
-                        case 6:
-                            <td> Controle de Qualidade </td>
-                            ; break;
-                        default:
-                            <td> N/A </td>
-                            ; break;
-                    }
-                    @switch (ordem.MaquinaId)
-                    {
-                        case 1:
-                            <td> CR-217 </td>
-                            ; break;
-                        case 2:
-                            <td> CR-219 </td>
-                            ; break;
-                        case 3:
-                            <td> CR-221 </td>
-                            ; break;
-                        case 4:
-                            <td> CR-215 </td>
-                            ; break;
-                        case 7:
-                            <td> CR-216 </td>
-                            ; break;
-                        default:
-                            <td> N/A </td>
-                            ; break;
-                    }
-                    <td>@ordem.TempoExecucao</td>
-                    <td>@ordem.DataHoraExecucao</td>
-                    @switch (ordem.StatusNumero)
-                    {
-                        case 0:
-                            <td> Aberta Aguardando </td>
-                            ; break;
-                        case 1:
-                            <td> Aberta Executando </td>
-                            ; break;
-                        case 2:
-                            <td> Aberta Parada </td>
-                            ; break;
-                        case 3:
-                            <td> Fechada </td>
-                            ; break;
-                        default:
-                            <td> N/A </td>
-                            ; break;
-                    }
-                    @switch (ordem.TipoNumero)
-                    {
-                        case 0:
-                            <td> Preventiva </td>
-                            ; break;
-                        case 1:
-                            <td> Corretiva Agendada </td>
-                            ; break;
-                        case 2:
-                            <td> Corretiva Urgente </td>
-                            ; break;
-                        default:
-                            <td> N/A </td>
-                            ; break;
-                    }
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a role="button" class="btn btn-primary" asp-route-id="@ordem.Id" asp-controller="Editar" asp-action="EditarProdutoView">EDITAR</a>
-                        </div>
-                    </td>
+                    <th scope="colgroup">ID</th>
+                    <th scope="colgroup">MOTIVO</th>
+                    <th scope="colgroup">DESCRIÇÃO</th>
+                    <th scope="colgroup">SETOR</th>
+                    <th scope="colgroup">MÁQUINA</th>
+                    <th scope="colgroup">TEMPO UTILIZADO</th>
+                    <th scope="colgroup">DATA E HORA (INÍCIO)</th>
+                    <th scope="colgroup">STATUS</th>
+                    <th scope="colgroup">TIPO</th>
+                    <th scope="colgroup">AÇÃO</th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (OrdemManutencaoModel ordem in Model)
+                    {
+                        if (ordem.DataHoraExecucao.Date == DateTime.Today)
+                        {
+                            <tr>
+                                <td>@ordem.Id</td>
+                                <td>@ordem.Motivo</td>
+                                <td>@ordem.Observacao</td>
+                                @switch (ordem.SetorId)
+                                {
+                                    case 1:
+                                        <td> Engenharia </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Corte </td>
+                                        ; break;
+                                    case 3:
+                                        <td> Acabamento </td>
+                                        ; break;
+                                    case 4:
+                                        <td> Embalagem </td>
+                                        ; break;
+                                    case 5:
+                                        <td> Separação </td>
+                                        ; break;
+                                    case 6:
+                                        <td> Controle de Qualidade </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                @switch (ordem.MaquinaId)
+                                {
+                                    case 1:
+                                        <td> CR-217 </td>
+                                        ; break;
+                                    case 2:
+                                        <td> CR-219 </td>
+                                        ; break;
+                                    case 3:
+                                        <td> CR-221 </td>
+                                        ; break;
+                                    case 4:
+                                        <td> CR-215 </td>
+                                        ; break;
+                                    case 7:
+                                        <td> CR-216 </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                <td>@ordem.TempoExecucao</td>
+                                <td>@ordem.DataHoraExecucao</td>
+                                @switch (ordem.StatusNumero)
+                                {
+                                    case 0:
+                                        <td> Aberta Aguardando </td>
+                                        ; break;
+                                    case 1:
+                                        <td> Aberta Executando </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Aberta Parada </td>
+                                        ; break;
+                                    case 3:
+                                        <td> Fechada </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                @switch (ordem.TipoNumero)
+                                {
+                                    case 0:
+                                        <td> Preventiva </td>
+                                        ; break;
+                                    case 1:
+                                        <td> Corretiva Agendada </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Corretiva Urgente </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a role="button" class="btn btn-primary" asp-route-id="@ordem.Id" asp-controller="Editar" asp-action="EditarProdutoView">ATUALIZAR</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<br />
+
+<div class="card text-center bg-light">
+    <h5 class="card-header bg-warning">
+        ORDENS AGENDADAS PARA ESSA SEMANA
+    </h5>
+    <div class="card-body">
+
+        <table class="table table-bordered border-primary">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="colgroup">ID</th>
+                    <th scope="colgroup">MOTIVO</th>
+                    <th scope="colgroup">DESCRIÇÃO</th>
+                    <th scope="colgroup">SETOR</th>
+                    <th scope="colgroup">MÁQUINA</th>
+                    <th scope="colgroup">TEMPO UTILIZADO</th>
+                    <th scope="colgroup">DATA E HORA (INÍCIO)</th>
+                    <th scope="colgroup">STATUS</th>
+                    <th scope="colgroup">TIPO</th>
+                    <th scope="colgroup">AÇÃO</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (OrdemManutencaoModel ordem in Model)
+                    {
+                        if (ordem.DataHoraExecucao.Date == DateTime.Today)
+                        {
+                            <tr>
+                                <td>@ordem.Id</td>
+                                <td>@ordem.Motivo</td>
+                                <td>@ordem.Observacao</td>
+                                @switch (ordem.SetorId)
+                                {
+                                    case 1:
+                                        <td> Engenharia </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Corte </td>
+                                        ; break;
+                                    case 3:
+                                        <td> Acabamento </td>
+                                        ; break;
+                                    case 4:
+                                        <td> Embalagem </td>
+                                        ; break;
+                                    case 5:
+                                        <td> Separação </td>
+                                        ; break;
+                                    case 6:
+                                        <td> Controle de Qualidade </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                @switch (ordem.MaquinaId)
+                                {
+                                    case 1:
+                                        <td> CR-217 </td>
+                                        ; break;
+                                    case 2:
+                                        <td> CR-219 </td>
+                                        ; break;
+                                    case 3:
+                                        <td> CR-221 </td>
+                                        ; break;
+                                    case 4:
+                                        <td> CR-215 </td>
+                                        ; break;
+                                    case 7:
+                                        <td> CR-216 </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                <td>@ordem.TempoExecucao</td>
+                                <td>@ordem.DataHoraExecucao</td>
+                                @switch (ordem.StatusNumero)
+                                {
+                                    case 0:
+                                        <td> Aberta Aguardando </td>
+                                        ; break;
+                                    case 1:
+                                        <td> Aberta Executando </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Aberta Parada </td>
+                                        ; break;
+                                    case 3:
+                                        <td> Fechada </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                @switch (ordem.TipoNumero)
+                                {
+                                    case 0:
+                                        <td> Preventiva </td>
+                                        ; break;
+                                    case 1:
+                                        <td> Corretiva Agendada </td>
+                                        ; break;
+                                    case 2:
+                                        <td> Corretiva Urgente </td>
+                                        ; break;
+                                    default:
+                                        <td> N/A </td>
+                                        ; break;
+                                }
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a role="button" class="btn btn-primary" asp-route-id="@ordem.Id" asp-controller="Editar" asp-action="EditarProdutoView">ATUALIZAR</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

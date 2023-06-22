@@ -1,8 +1,4 @@
-﻿        ﻿
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
+﻿<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SmartFix</title>
@@ -38,7 +34,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href="#">Monitoramento de Máquinas</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="ConsultaOrdemManutencao" asp-action="ConsultaOrdemManutencaoView">Ordens de Manutenção em Aberto</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="ConsultaOrdemManutencao" asp-action="ConsultaOrdemManutencaoView">Histórico de Ordens de Manutenção</a></li>
                                 <li><a class="dropdown-item" href="#">Histórico de Manutenção</a></li>
                             </ul>
                         </li>
@@ -65,4 +61,3 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-</html>

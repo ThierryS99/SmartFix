@@ -2,6 +2,7 @@
 using SmartFix.Data;
 using SmartFix.Models;
 using SmartFix.Repositorio;
+using System.Runtime.Intrinsics;
 
 namespace SmartFix.Controllers
 {
@@ -13,11 +14,12 @@ namespace SmartFix.Controllers
             _ordemManutencaoRepositorio = ordemManutencaoRepositorio;
         }
 
-        [HttpGet]
+        [HttpGet("/v1/dashboard")]
         public IActionResult DashboardView()
         {
             List<OrdemManutencaoModel> ordemManutencao = _ordemManutencaoRepositorio.BuscarOrdens();
             return View(ordemManutencao);
         }
+
     }
 }

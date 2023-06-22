@@ -9,5 +9,9 @@ namespace SmartFix.Repositorio
         List<MaquinaModel> BuscarMaquina();
 
         List<OrdemManutencaoModel> BuscarOrdens();
+
+        List<OrdemManutencaoModel> BuscarOrdensDia();
+        List<OrdemManutencaoModel> BuscarOrdensSemana();
+
     }
 }

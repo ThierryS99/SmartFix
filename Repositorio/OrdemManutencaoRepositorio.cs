@@ -28,5 +28,15 @@ namespace SmartFix.Repositorio
         {
             return _bancoContext.OrdemManutencao.ToList();
         }
+
+        public List<OrdemManutencaoModel> BuscarOrdensDia()
+        {
+            return _bancoContext.OrdemManutencao.ToList();
+        }
+
+        public List<OrdemManutencaoModel> BuscarOrdensSemana()
+        {
+            return _bancoContext.OrdemManutencao.ToList();
+        }
     }
 }

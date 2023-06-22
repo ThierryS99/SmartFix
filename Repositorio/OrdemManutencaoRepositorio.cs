@@ -19,5 +19,14 @@ namespace SmartFix.Repositorio
             return ordem_Manutencao;
         }
 
+        public List<MaquinaModel> BuscarMaquina()
+        {
+            return _bancoContext.Maquina.ToList();
+        }
+
+        public List<OrdemManutencaoModel> BuscarOrdens()
+        {
+            return _bancoContext.OrdemManutencao.ToList();
+        }
     }
 }

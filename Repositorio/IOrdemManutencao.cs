@@ -4,6 +4,10 @@ namespace SmartFix.Repositorio
 {
     public interface IOrdemManutencaoRepositorio
     {
-        OrdemManutencaoModel Adicionar(OrdemManutencaoModel model);
+        OrdemManutencaoModel Adicionar(OrdemManutencaoModel ordemManutencao);
+
+        List<MaquinaModel> BuscarMaquina();
+
+        List<OrdemManutencaoModel> BuscarOrdens();
     }
 }

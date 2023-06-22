@@ -1,11 +1,11 @@
-﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+﻿﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @model OrdemManutencaoModel
 @{
-    ViewData["Title"] = "Cadastro de máquinas";
+    ViewData["Title"] = "Cadastro de Ordens";
 }
 
 <br />
@@ -38,25 +38,6 @@
 
         <label for="Nome">Id da Máquina:</label>
         <input type="text" required="true" style="text-transform:uppercase" asp-for="MaquinaId" class="form-control" placeholder="Informe o Id da máquina.">
-
-        @if (Model != null)
-        {
-            MaquinaModel maquinaModel = new MaquinaModel();
-
-            maquinaModel.MaquinasCadastradas();
-
-            foreach (MaquinaModel produto in Model)
-            {
-                <tr>
-                    <select class="form-select form-select-lg mb-3" asp-for="MaquinaId" aria-label="IdMaquina">
-                        <option selected>Selecione a máquina.</option>
-                        <option value="@produto.Id" name="IdMaquina">@produto.CodigoIdentificacao</option>
-                    </select>
-                    <th scope="row">@produto.Id</th>
-                </tr>
-            }
-        }
-
 
         <br />
 
